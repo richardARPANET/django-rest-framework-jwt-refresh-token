@@ -1,12 +1,18 @@
 from calendar import timegm
 from datetime import datetime
+from functools import partial
 
 from django.utils.translation import ugettext as _
 from rest_framework import exceptions, generics, status, viewsets
-from rest_framework.decorators import detail_route
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework_jwt.settings import api_settings
+try:
+    from rest_framework.decorators import detail_route
+except ImportError:
+    # DRF >= 3.8
+    from rest_framework.decorators import action
+    detail_route = partial(action, detail=True)
 
 from .models import RefreshToken
 from .serializers import DelegateJSONWebTokenSerializer, RefreshTokenSerializer
