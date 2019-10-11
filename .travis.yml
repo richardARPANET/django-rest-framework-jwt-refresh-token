@@ -29,7 +29,19 @@ matrix:
       python: 3.6
     - env: TOXENV=py36-django2.0-drf3.8-jwt1.11
       python: 3.6
+    - env: TOXENV=py36-django2.0-drf3.9-jwt1.11
+      python: 3.6
+    - env: TOXENV=py36-django2.0-drf3.10-jwt1.11
+      python: 3.6
     - env: TOXENV=py37-django2.1-drf3.8-jwt1.11
+      python: 3.7
+      dist: xenial
+      sudo: true
+    - env: TOXENV=py37-django2.1-drf3.9-jwt1.11
+      python: 3.7
+      dist: xenial
+      sudo: true
+    - env: TOXENV=py37-django2.1-drf3.10-jwt1.11
       python: 3.7
       dist: xenial
       sudo: true
